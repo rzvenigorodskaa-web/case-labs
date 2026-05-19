@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учёт слушателей ДПО</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Система управления ДПО</h1>
+        <h3>Учёт движения слушателей</h3>
+
+        <div class="form-container">
+            <h2>Добавить / Зачислить слушателя</h2>
+            <form id="studentForm">
+                <div>
+                    <label for="studentName">ФИО слушателя:</label>
+                    <input type="text" id="studentName" required placeholder="Иванов Иван Иванович">
+                </div>
+                <div>
+                    <label for="program">Программа обучения:</label>
+                    <select id="program">
+                        <option value="Программирование на Python">Программирование на Python</option>
+                        <option value="Веб-разработка">Веб-разработка</option>
+                        <option value="Базы данных">Базы данных</option>
+                        <option value="CASE-технологии">CASE-технологии</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="movementType">Тип движения:</label>
+                    <select id="movementType">
+                        <option value="add">Зачисление (поступление)</option>
+                        <option value="remove">Отчисление (отгрузка)</option>
+                    </select>
+                </div>
+                <button type="submit">Выполнить</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Текущий состав слушателей</h2>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>ФИО слушателя</th>
+                        <th>Программа обучения</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="log-container">
+            <h2>История движений</h2>
+            <ul id="movementLog">
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #1e466e;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin-top: 0;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.form-container, .table-container, .log-container {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #495057;
+}
+
+input[type="text"], select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #1e466e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0d2b48;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #e2e6ea;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #b02a37;
+}
+
+#movementLog {
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: white;
+}
+
+#movementLog li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #dee2e6;
+    font-size: 14px;
+}
+
+#movementLog li:last-child {
+    border-bottom: none;
+}
