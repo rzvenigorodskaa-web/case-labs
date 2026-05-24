@@ -3,7 +3,7 @@ from PySide6.QtWidgets import (
     QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
     QLabel, QComboBox, QPushButton, QTableWidget, QTableWidgetItem,
     QMessageBox, QSpinBox
-)
+)ghjhj
 
 class AnalyticsApp(QMainWindow):
     def __init__(self):
